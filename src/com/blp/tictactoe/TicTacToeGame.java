@@ -1,8 +1,8 @@
 package com.blp.tictactoe;
 import java.util.Scanner;
 public class TicTacToeGame {
-    Scanner scanner = new Scanner(System.in);
     public static char[] board = new char[10];
+    public static char playerchoice;
     public static void createBoard()
     {
         for(int i = 1; i <board.length; i++)
@@ -40,10 +40,26 @@ public class TicTacToeGame {
         System.out.println("| "+board[7]+ " | " +board[8]+ " | " +board[9]+ " |");
         System.out.println("|--------|");
     }
+    public static void playMove()
+    {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Select position in Index to move in Board(1 to 9)");
+        int indexnumber = scanner.nextInt();
+        if(indexnumber < 1 || indexnumber > 9)
+        {
+            System.out.println("You entered Invalid position");
+            playMove();
+        }else
+        {
+            board[indexnumber] = playerchoice;
+            showBoard();
+        }
+    }
     public static void main(String[] args) {
         System.out.println("Welcome to Tic Tac Toe Game");
         createBoard();
         assignInputs();
         showBoard();
+        playMove();
     }
 }
