@@ -51,6 +51,10 @@ public class TicTacToeGame {
         {
             System.out.println("You entered Invalid position");
             playMove();
+        }else if(board[indexnumber] != ' ')
+        {
+            System.out.println("The index already occupied choose other index: " +"observe game board");
+            playMove();
         }else
         {
             board[indexnumber] = playerchoice;
