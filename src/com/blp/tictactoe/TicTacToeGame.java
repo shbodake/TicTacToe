@@ -1,8 +1,10 @@
 package com.blp.tictactoe;
 import java.util.Scanner;
+import java.util.Random;
 public class TicTacToeGame {
     public static char[] board = new char[10];
     public static char playerchoice;
+    static Random random = new Random();
     public static void createBoard()
     {
         for(int i = 1; i <board.length; i++)
@@ -55,11 +57,25 @@ public class TicTacToeGame {
             showBoard();
         }
     }
+    public static void tossCoin()
+    {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Tossing To Check who Plays First");
+        int toss = random.nextInt(2);
+        if (toss == 0) {
+            System.out.println("Its Heads Player Plays first");
+        } else {
+            System.out.println("Its Tails Computer Plays first");
+        }
+    }
+
+
     public static void main(String[] args) {
         System.out.println("Welcome to Tic Tac Toe Game");
         createBoard();
         assignInputs();
         showBoard();
         playMove();
+        tossCoin();
     }
 }
